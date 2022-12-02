@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { SearchComponent } from './pages/search/search.component';
-import { SearchModule } from './pages/search/search.module';
 
 const routes: Routes = [
   { path: '', component: MainComponent },

@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search.component';
 import { MaterialModule } from '../../modules/material/material.module';
-import { ArticleComponent } from 'src/app/components/article/article.component';
-import { PaginatorComponent } from 'src/app/components/paginator/paginator.component';
+import { SharedModule } from 'src/app/components/shared/shared.module';
 
 @NgModule({
-  declarations: [SearchComponent, ArticleComponent, PaginatorComponent],
-  imports: [CommonModule, MaterialModule],
+  declarations: [SearchComponent],
+  imports: [CommonModule, MaterialModule, SharedModule],
 })
 export class SearchModule {}
