@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { HeaderComponent } from './components/header/header.component';
-import { SearchModule } from './modules/search/search.module';
+import { SearchModule } from './pages/search/search.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
