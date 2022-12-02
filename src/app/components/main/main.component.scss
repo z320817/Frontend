@@ -1,8 +1,13 @@
-.main-flex-container {
+.flex-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 16px;
+}
+
+.search-container {
+  justify-content: center;
+  align-items: center;
 }
 
 button {
