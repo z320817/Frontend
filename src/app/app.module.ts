@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchModule } from './pages/search/search.module';
-import { SharedModule } from './components/shared/shared.module';
+import { FetchModule } from './pages/fetch/fetch.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -16,6 +16,8 @@ import { SharedModule } from './components/shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    SearchModule,
+    FetchModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
