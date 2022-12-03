@@ -53,4 +53,8 @@ export class ArticleComponent implements OnInit {
       });
     }
   }
+
+  navigateBack(): void {
+    history.back();
+  }
 }
