@@ -9,16 +9,16 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ArticleComponent implements OnInit {
   @Input() article!: Article;
-  public content?: string;
-  public description?: string;
-  public image?: string;
-  public title?: string;
-  public articleId?: string;
+  public content = '';
+  public description = '';
+  public image = '';
+  public title = '';
+  public articleId = '';
 
   constructor() {}
 
   ngOnInit(): void {
-    const { content, description, image, source, title, url } = this.article;
+    const { content, description, image, title } = this.article;
     this.content = content;
     this.description = description;
     this.image = image;
