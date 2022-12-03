@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RestApiService } from 'src/app/services/http/rest-api.service';
 import { Article } from 'src/app/shared/interfaces/article';
-import { apiResponse } from 'src/assets/mock-data';
 
 @Component({
   selector: 'app-fetch',
@@ -26,7 +25,6 @@ export class FetchComponent implements OnInit, OnDestroy {
       },
       error: (error) => {
         console.log(error);
-        this.articles = apiResponse;
       },
     });
   }
