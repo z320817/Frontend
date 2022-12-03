@@ -45,4 +45,15 @@ export class BookmarkService {
       console.log('Local storage save error');
     }
   }
+
+  public deleteBookmark(id: string) {
+    let bookmarks = this.getBookmarks() || [];
+    const filteredBookmarks = bookmarks.filter((article) => article.id !== id);
+
+    try {
+      localStorage.setItem('bookmarks', JSON.stringify(filteredBookmarks));
+    } catch {
+      console.log('Local storage save error');
+    }
+  }
 }

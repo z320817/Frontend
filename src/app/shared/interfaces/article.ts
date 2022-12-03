@@ -5,6 +5,7 @@ export interface Article {
   url: string;
   image: string;
   source: Source;
+  id?: string;
 }
 
 export interface Source {

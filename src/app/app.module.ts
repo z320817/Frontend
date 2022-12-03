@@ -10,6 +10,7 @@ import { SearchModule } from './pages/search/search.module';
 import { FetchModule } from './pages/fetch/fetch.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleModule } from './pages/article/article.module';
+import { BookmarkModule } from './pages/bookmark/bookmark.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -20,6 +21,7 @@ import { ArticleModule } from './pages/article/article.module';
     MaterialModule,
     SearchModule,
     FetchModule,
+    BookmarkModule,
     ArticleModule,
     HttpClientModule,
   ],

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BookmarkService } from 'src/app/services/localStorage/bookmark.service';
-import { Article, Source } from 'src/app/shared/interfaces/article';
+import { Article } from 'src/app/shared/interfaces/article';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
@@ -10,6 +10,9 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ArticleComponent implements OnInit {
   @Input() article!: Article;
+  @Input() type?: string;
+  @Output() bookmarkDeleted = new EventEmitter();
+
   public content = '';
   public description = '';
   public image = '';
@@ -24,7 +27,7 @@ export class ArticleComponent implements OnInit {
     this.description = description;
     this.image = image;
     this.title = title;
-    this.articleId = uuidv4();
+    this.articleId = this.article.id ?? uuidv4();
   }
 
   saveToBookmarks() {
@@ -32,6 +35,15 @@ export class ArticleComponent implements OnInit {
 
     if (!isAlreadySaved) {
       this.bookmarkService.setBookmark({ ...this.article, id: this.articleId });
+    }
+  }
+
+  deleteFromBookmarks(id: string) {
+    const isExist = this.bookmarkService.checkIfExists(id);
+
+    if (isExist) {
+      this.bookmarkService.deleteBookmark(id);
+      this.bookmarkDeleted.emit();
     }
   }
 }
