@@ -15,7 +15,7 @@
       [state]="article"
       ><mat-icon md-18>read_more</mat-icon>Read More</a
     >
-    <button class="bookmark" mat-raised-button>
+    <button class="bookmark" mat-raised-button (click)="saveToBookmarks()">
       Bookmark
       <mat-icon md-18>bookmark</mat-icon>
     </button>

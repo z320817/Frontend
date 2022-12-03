@@ -5,7 +5,7 @@
         <mat-card-title>{{ title }}</mat-card-title>
         <mat-card-subtitle>{{ description }}</mat-card-subtitle>
       </div>
-      <button class="bookmark" mat-raised-button>
+      <button class="bookmark" mat-raised-button (click)="saveToBookmarks()">
         Bookmark
         <mat-icon md-18>bookmark</mat-icon>
       </button>
@@ -18,9 +18,7 @@
     </mat-card-content>
     <mat-card-actions>
       SOURCE:
-      <a class="search-btn" mat-button [href]="source?.url">{{
-        source?.name
-      }}</a>
+      <a class="search-btn" mat-button [href]="source.url">{{ source.name }}</a>
     </mat-card-actions>
   </mat-card>
 </mat-card>

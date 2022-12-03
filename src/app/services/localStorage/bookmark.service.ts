@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Article } from 'src/app/shared/interfaces/article';
+import { SavedArticle } from 'src/app/shared/interfaces/article';
 
 @Injectable({
   providedIn: 'root',
@@ -7,13 +7,13 @@ import { Article } from 'src/app/shared/interfaces/article';
 export class BookmarkService {
   constructor() {}
 
-  public getBookmarks(): Article[] | null {
+  public getBookmarks(): SavedArticle[] | null {
     let bookmarks;
     try {
       const localData = localStorage.getItem('bookmarks');
 
       if (localData) {
-        bookmarks = JSON.parse(localData) as Article[];
+        bookmarks = JSON.parse(localData) as SavedArticle[];
       } else {
         bookmarks = null;
       }
@@ -25,15 +25,24 @@ export class BookmarkService {
     return bookmarks;
   }
 
-  public setBookmark(article: Article) {
+  public checkIfExists(articleId: string): boolean {
     let bookmarks = this.getBookmarks();
 
     if (bookmarks?.length) {
-      bookmarks.push(article);
+      return !!bookmarks.find((bookmark) => articleId == bookmark.id);
     } else {
-      bookmarks = [];
+      return false;
     }
+  }
 
-    return localStorage.setItem('bookmarks', bookmarks.toString());
+  public setBookmark(article: SavedArticle) {
+    let bookmarks = this.getBookmarks() || [];
+    bookmarks.push(article);
+
+    try {
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    } catch {
+      console.log('Local storage save error');
+    }
   }
 }

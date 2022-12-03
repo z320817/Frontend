@@ -11,3 +11,7 @@ export interface Source {
   name: string;
   url: string;
 }
+
+export interface SavedArticle extends Article {
+  id: string;
+}

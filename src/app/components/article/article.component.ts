@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BookmarkService } from 'src/app/services/localStorage/bookmark.service';
 import { Article, Source } from 'src/app/shared/interfaces/article';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -15,7 +16,7 @@ export class ArticleComponent implements OnInit {
   public title = '';
   public articleId = '';
 
-  constructor() {}
+  constructor(private bookmarkService: BookmarkService) {}
 
   ngOnInit(): void {
     const { content, description, image, title } = this.article;
@@ -24,5 +25,13 @@ export class ArticleComponent implements OnInit {
     this.image = image;
     this.title = title;
     this.articleId = uuidv4();
+  }
+
+  saveToBookmarks() {
+    const isAlreadySaved = this.bookmarkService.checkIfExists(this.articleId);
+
+    if (!isAlreadySaved) {
+      this.bookmarkService.setBookmark({ ...this.article, id: this.articleId });
+    }
   }
 }
