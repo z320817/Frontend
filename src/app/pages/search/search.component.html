@@ -10,7 +10,7 @@
   </mat-form-field>
 </div>
 
-<ng-container *ngIf="articles?.length; else loaderTemplate">
+<ng-container *ngIf="!loading; else loaderTemplate">
   <div class="articles-container" *ngFor="let article of articles">
     <app-article [article]="article"></app-article>
   </div>
