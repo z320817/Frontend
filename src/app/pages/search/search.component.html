@@ -10,6 +10,14 @@
   </mat-form-field>
 </div>
 
-<div class="articles-container" *ngFor="let article of articles">
-  <app-article [article]="article"></app-article>
-</div>
+<ng-container *ngIf="articles?.length; else loaderTemplate">
+  <div class="articles-container" *ngFor="let article of articles">
+    <app-article [article]="article"></app-article>
+  </div>
+</ng-container>
+
+<ng-template #loaderTemplate>
+  <div class="flex-container">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+</ng-template>
