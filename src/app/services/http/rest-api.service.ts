@@ -19,13 +19,13 @@ export class RestApiService {
 
   public getArticles(): Observable<Article[]> {
     return this.http
-      .get<Article[]>(this.BACKEND_DEV_URL + '/news')
+      .get<Article[]>(this.BACKEND_DEV_URL + 'news')
       .pipe(retry(1), catchError(this.handleError));
   }
 
   public searchArticles(term: string): Observable<Article[]> {
     return this.http
-      .get<Article[]>(this.BACKEND_DEV_URL + '/news/search/' + term)
+      .get<Article[]>(this.BACKEND_DEV_URL + 'news/search/' + term)
       .pipe(retry(1), catchError(this.handleError));
   }
 

@@ -1,10 +1,19 @@
 <div class="flex-container search-container">
   <h2 class="mat-display-1">Search a news article by keywords:</h2>
   <mat-form-field class="search-input">
-    <input matInput placeholder="Enter keywords" />
+    <input
+      matInput
+      #search
+      placeholder="Enter keywords"
+      (change)="searchArticles(search.value)"
+    />
   </mat-form-field>
 </div>
 
-<app-article></app-article>
+<div class="articles-container" *ngFor="let article of articles">
+  <app-article article="article"></app-article>
+</div>
 
-<app-paginator></app-paginator>
+<div class="paginator-container" *ngIf="pagination">
+  <app-paginator></app-paginator>
+</div>
