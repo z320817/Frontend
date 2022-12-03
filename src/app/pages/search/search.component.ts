@@ -17,7 +17,6 @@ export class SearchComponent implements OnDestroy {
   constructor(public restApiServise: RestApiService) {}
 
   searchArticles(term: string) {
-    console.log(term);
     this.subscription = this.restApiServise.searchArticles(term).subscribe({
       next: (response: Article[]) => {
         this.articles = response;
