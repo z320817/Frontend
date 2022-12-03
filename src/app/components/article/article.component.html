@@ -1,23 +1,11 @@
-<mat-card>
+<mat-card class="article-container">
   <mat-card-header>
-    <img
-      class="article-image"
-      mat-card-avatar
-      src="https://cdn.pixabay.com/photo/2018/10/11/12/31/black-cat-3739702_1280.jpg"
-      alt="My Photos"
-    />
-    <mat-card-title>Easy, Breezy, Beautiful</mat-card-title>
-    <mat-card-subtitle>Angular Material</mat-card-subtitle>
+    <img class="article-image" mat-card-avatar [src]="image" [alt]="title" />
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-card-subtitle>{{ description }}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-    <p>
-      This is an amazing blog on Angular Material. Here is some awesome text
-      about Angular Material. Here is some awesome text about Angular Material.
-      Here is some awesome text about Angular Material. Here is some awesome
-      text about Angular Material. Here is some awesome text about Angular
-      Material. Here is some awesome text about Angular Material. Here is some
-      awesome text about Angular Material.
-    </p>
+  <mat-card-content class="article-content">
+    <p>{{ content | slice : 0 : 250 }}...</p>
   </mat-card-content>
   <mat-card-actions align="end">
     <button class="read-more" mat-raised-button>

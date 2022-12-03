@@ -7,7 +7,7 @@ export interface Article {
   source: Source;
 }
 
-interface Source {
+export interface Source {
   name: string;
   url: string;
 }

@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RestApiService } from 'src/app/services/http/rest-api.service';
 import { Article } from 'src/app/shared/interfaces/article';
+import { apiResponse } from 'src/assets/mock-data';
 
 @Component({
   selector: 'app-search',
@@ -17,14 +18,15 @@ export class SearchComponent implements OnDestroy {
   constructor(public restApiServise: RestApiService) {}
 
   searchArticles(term: string) {
-    this.subscription = this.restApiServise.searchArticles(term).subscribe({
-      next: (response: Article[]) => {
-        this.articles = response;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    this.articles = apiResponse;
+    // this.subscription = this.restApiServise.searchArticles(term).subscribe({
+    //   next: (response: Article[]) => {
+    //     this.articles = response;
+    //   },
+    //   error: (error) => {
+    //     console.log(error);
+    //   },
+    // });
   }
 
   ngOnDestroy(): void {
