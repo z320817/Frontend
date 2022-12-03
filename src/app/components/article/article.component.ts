@@ -27,7 +27,12 @@ export class ArticleComponent implements OnInit {
     this.description = description;
     this.image = image;
     this.title = title;
-    this.articleId = this.article.id ?? uuidv4();
+
+    if (this.article.id) {
+      this.articleId = this.article.id;
+    } else {
+      this.articleId = uuidv4();
+    }
   }
 
   saveToBookmarks() {
