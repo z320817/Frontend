@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
-import { ArticleComponent } from './pages/article/article/article.component';
+import { ArticleComponent } from './pages/article/article.component';
 import { FetchComponent } from './pages/fetch/fetch.component';
 import { SearchComponent } from './pages/search/search.component';
 
