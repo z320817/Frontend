@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchModule } from './pages/search/search.module';
 import { FetchModule } from './pages/fetch/fetch.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ArticleModule } from './pages/article/article/article.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     SearchModule,
     FetchModule,
+    ArticleModule,
     HttpClientModule,
   ],
   providers: [],

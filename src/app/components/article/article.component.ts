@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Article, Source } from 'src/app/shared/interfaces/article';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-article',
@@ -12,6 +13,7 @@ export class ArticleComponent implements OnInit {
   public description?: string;
   public image?: string;
   public title?: string;
+  public articleId?: string;
 
   constructor() {}
 
@@ -21,5 +23,6 @@ export class ArticleComponent implements OnInit {
     this.description = description;
     this.image = image;
     this.title = title;
+    this.articleId = uuidv4();
   }
 }

@@ -8,10 +8,9 @@
     <p>{{ content | slice : 0 : 250 }}...</p>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button class="read-more" mat-raised-button>
-      Read More
-      <mat-icon md-18>read_more</mat-icon>
-    </button>
+    <a class="read-more" mat-button [routerLink]="'/article/' + articleId"
+      ><mat-icon md-18>read_more</mat-icon>Read More</a
+    >
     <button class="bookmark" mat-raised-button>
       Bookmark
       <mat-icon md-18>bookmark</mat-icon>

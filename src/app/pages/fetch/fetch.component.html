@@ -2,6 +2,8 @@
   <h2 class="mat-display-1">Display top headlines:</h2>
 </div>
 
-<app-article></app-article>
+<div class="articles-container" *ngFor="let article of articles">
+  <app-article [article]="article"></app-article>
+</div>
 
 <app-paginator></app-paginator>
